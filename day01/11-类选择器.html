@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>类选择器</title>
+    <style>
+      /*类选择器：*/
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      /* 后代选择器*/
+      div span {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">我是一个盒子</div>
+    <div class="box2">我是一个盒子</div>
+    <div class="box3">我是一个盒子</div>
+    <span>span</span>
+    <div><span>divspan</span></div>
+  </body>
+</html>
