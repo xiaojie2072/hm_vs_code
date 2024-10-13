@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>盒子模型</title>
+    <style>
+      div {
+        background-color: pink;
+        /* 边框盒子模型  类似于鸿蒙 */
+        box-sizing: border-box;
+        /* div 的 width: 默认宽度占满整行 */
+        width: 200px;
+        height: 200px;
+        /* 内边距 */
+        padding: 20px;
+        /* 边框 */
+        border: 10px solid red;
+        /* 外边距 */
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 盒子模型  内容 + 内边距 + 边框 + 外边距 -->
+    <div>内容</div>
+    <div>内容</div>
+  </body>
+</html>

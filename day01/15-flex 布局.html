@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex 布局</title>
+    <style>
+      .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .box {
+        margin: 10px;
+        background-color: pink;
+      }
+      .father {
+        width: 400px;
+        height: 400px;
+        background-color: skyblue;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .box3 {
+        /* 相当于鸿蒙的layoutweight */
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row father">
+      <p class="box">段落1</p>
+      <p class="box">段落2</p>
+      <p class="box">段落1</p>
+      <p class="box">段落2</p>
+      <p class="box">段落1</p>
+      <p class="box">段落2</p>
+      <p class="box">段落1</p>
+      <p class="box3">段落3</p>
+      <p class="box3">段落3</p>
+      <p class="box3">段落3</p>
+    </div>
+  </body>
+</html>
