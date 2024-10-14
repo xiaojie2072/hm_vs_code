@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数</title>
+  </head>
+  <body>
+    <button onclick="fn()">fn</button>
+    <button onclick="fn2()">fn2</button>
+    <button onclick="fn3()">fn3</button>
+    <button onclick="sayHi('哈哈哈')">sayHi</button>
+  </body>
+  <script>
+    function fn() {
+      alert("fn哈哈哈");
+    }
+    const fn2 = function () {
+      alert("fn2哈哈哈");
+    };
+    const fn3 = () => {
+      alert("fn3哈哈哈");
+    };
+    const sayHi = (params) => {
+      alert(params);
+    };
+    function printInfo(name, gender = "man", ...args) {
+      console.log(name);
+      console.log(gender);
+      console.log(args);
+    }
+
+    printInfo("小红", "woman", 1, 2, 3); // 小红 woman [1, 2, 3]
+    printInfo("小红", 1, 2, 3); // 小红 1 [2, 3]
+  </script>
+</html>
