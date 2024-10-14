@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定位</title>
+    <style>
+      .father {
+        width: 80vw;
+        height: 50vw;
+        border: 1px solid #000;
+        /* 父 - 相对定位 */
+        position: relative;
+      }
+
+      .one {
+        width: 20vw;
+        height: 10vw;
+        background-color: orange;
+        /* 子 - 绝对定位 */
+        position: absolute;
+        left: 0vw;
+        top: 0vw;
+      }
+
+      .two {
+        width: 20vw;
+        height: 10vw;
+        background-color: green;
+        /* 子 - 绝对定位 */
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="one">one</div>
+      <div class="two">two</div>
+    </div>
+  </body>
+</html>
