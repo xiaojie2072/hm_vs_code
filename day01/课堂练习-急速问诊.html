@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
       .row {
         display: flex;
         flex-direction: row;
@@ -20,6 +24,7 @@
         background-color: #fff;
         align-items: center;
         justify-content: space-between;
+        margin-top: 5vw;
       }
       .header_left {
         width: 5vw;
@@ -28,6 +33,7 @@
       .header_left_box {
         width: 16vw;
         height: 5vw;
+        padding-left: 1vw;
       }
       .header_title {
         margin: 0;
@@ -37,6 +43,40 @@
         margin: 0;
         color: darkturquoise;
         text-decoration: none;
+        padding-right: 1vw;
+      }
+      .content {
+        /* background-color: pink; */
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        margin-top: 5vw;
+        padding-top: 5vw;
+        border-top: 1px solid #adaaaa;
+      }
+      .content_img {
+        width: 70vw;
+        margin-top: 10vw;
+        margin-bottom: 5vw;
+        align-self: center;
+      }
+      .content_mm {
+        color: darkturquoise;
+        padding-right: 1vw;
+      }
+      .content_img_left {
+        width: 10vw;
+        height: 10vw;
+      }
+      .content_img_right {
+        width: 5vw;
+        height: 5vw;
+      }
+      .content_text {
+        margin-left: 3vw;
+        flex: 1;
+        column-gap: 2vw;
       }
     </style>
   </head>
@@ -50,16 +90,42 @@
         <h1 class="header_title">急速问诊</h1>
         <a class="header_right" href="#">问诊记录</a>
       </div>
-      <!-- 内容 -->
+      <!-- 主体 -->
       <div class="column">
-        <img src="./images/consult-fast.png" alt="" />
+        <!-- 图片 -->
+        <img class="content_img" src="./images/consult-fast.png" alt="" />
         <div class="row">
           <span class="content_mm"><strong>20s</strong></span>
           <span><strong>快速匹配专业医生</strong></span>
         </div>
       </div>
-
-      <!-- 底部 -->
+      <!-- 列表 -->
+      <div class="row content">
+        <!-- 左图片 -->
+        <img class="content_img_left" src="./images/doctor.png" alt="" />
+        <!-- 文本 -->
+        <div class="column content_text">
+          <div>三甲图文问诊</div>
+          <div style="color: #adaaaa; font-size: 14px">
+            三甲主治及以上级别医生
+          </div>
+        </div>
+        <!-- 右图片 -->
+        <img class="content_img_right" src="./images/arrow-right.png" alt="" />
+      </div>
+      <div class="row content">
+        <!-- 左图片 -->
+        <img class="content_img_left" src="./images/message.png" alt="" />
+        <!-- 文本 -->
+        <div class="column content_text">
+          <div>普通图文问诊</div>
+          <div style="color: #adaaaa; font-size: 14px">
+            二甲主治及以上级别医生
+          </div>
+        </div>
+        <!-- 右图片 -->
+        <img class="content_img_right" src="./images/arrow-right.png" alt="" />
+      </div>
     </div>
   </body>
 </html>
