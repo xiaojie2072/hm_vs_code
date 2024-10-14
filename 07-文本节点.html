@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea placeholder="请输入"></textarea>
+    <button>发送</button>
+    <h1>消息列表</h1>
+    <div class="box">
+      <p>默认消息</p>
+    </div>
+  </body>
+  <script>
+    const textarea = document.querySelector("textarea");
+    const btn = document.querySelector("button");
+    const box = document.querySelector(".box");
+    btn.addEventListener("click", () => {
+      const newP = document.createElement("p");
+      newP.innerText = textarea.value.trim();
+      console.log(newP);
+      //document.body.appendChild(newP);
+      box.prepend(newP);
+      newP.addEventListener("click", () => {
+        newP.remove();
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>头条</button>
+    <button>娱乐</button>
+    <button>科技</button>
+    <button>美食</button>
+  </body>
+  <script>
+    const btns = document.querySelectorAll("button");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        console.log(btn.innerHTML);
+        btns.forEach((btn) => {
+          btn.style.backgroundColor = "";
+        });
+        btn.style.backgroundColor = "red";
+      });
+    });
+  </script>
+</html>
