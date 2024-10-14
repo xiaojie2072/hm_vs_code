@@ -4,22 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+    </style>
   </head>
   <body>
     <button>按钮</button>
+    <div class="box"></div>
+    <input type="text" placeholder="请输入内容" />
   </body>
   <script>
     const btn = document.querySelector("button");
     // 赋值事件监听器
-    btn.onclick = () => {
-      console.log("按钮被点击了");
+    btn.onclick = function () {
+      console.log("函数被点击", this);
     };
     // 追加事件监听器
     btn.addEventListener("click", (e) => {
-      console.log("按钮被点击了", e.currentTarget);
+      console.log("箭头函数被点击", e.currentTarget);
     });
-
-    btn.addEventListener("mouseenter", () => {});
-    btn.addEventListener("mouseleave", () => {});
+    const box = document.querySelector(".box");
+    // 移入事件监听器
+    box.addEventListener("mouseenter", () => {
+      console.log("mouseenter-鼠标进入");
+    });
+    // 移出事件监听器
+    box.addEventListener("mouseleave", () => {
+      console.log("mouseleave-鼠标离开");
+    });
+    const input = document.querySelector("input");
+    // 获得焦点事件监听器
+    input.addEventListener("focus", () => {
+      console.log("focus-获得焦点");
+    });
+    // 失去焦点事件监听器
+    input.addEventListener("blur", () => {
+      console.log("blur-失去焦点");
+    });
+    // 键盘按下事件监听器
+    input.addEventListener("keydown", () => {
+      console.log("keydown-按下键盘");
+    });
+    // 键盘抬起事件监听器
+    input.addEventListener("keyup", (e) => {
+      console.log("keyup-松开键盘");
+      if (e.key == "Enter") {
+        console.log("按下了回车键");
+      }
+    });
+    // 输入事件监听器
+    input.addEventListener("input", (e) => {
+      console.log("input-输入框内容改变", e.currentTarget.value);
+    });
   </script>
 </html>
