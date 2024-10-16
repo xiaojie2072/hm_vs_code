@@ -1,47 +1,40 @@
+// setup 是Vue3组合式API的语法
+// lang="ts" 支持TS语法
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+console.log('根组件被加载')
+const msg = 'hello world'
+const name = '张三'
+const age = 18
+const clickButton = () => {
+  alert('点击了按钮')
+}
+const onMouseenter = () => {
+  console.log('鼠标进入')
+}
+const onMouseleave = () => {
+  console.log('鼠标离开')
+}
 </script>
 
+
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <h1 class="title">你好，hello world</h1>
+  <p>{{ msg }}</p>
+  <p>{{ name.charAt(0) }}</p>
+  <p>{{ age >= 18 ? '已成年' : '未成年' }}</p>
+  <button @click="clickButton()">点我</button>
+  <div class="box" @mouseenter="onMouseenter()" @mouseleave="onMouseleave()"></div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
-
+// scoped 样式只在当前组件有效
 <style scoped>
-header {
-  line-height: 1.5;
+.title {
+  color: #ff4400;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
 }
 </style>
