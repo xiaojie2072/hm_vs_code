@@ -1,8 +1,9 @@
 {
+  "$schema": "./tsconfig.json",// 加载此配置文件
   "compilerOptions": {
     "target":"ES6",       // 设置目标版本为 ES6
     "declaration": true,  // 开启生成 .d.ts 文件
-    "outDir": "./dist",   // 输出目录
+    "outDir": "./dist"    // 输出目录
   },
   "include": [            // 指定哪些文件应该被编译
     "src/*"
