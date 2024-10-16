@@ -1,8 +1,10 @@
-console.log('Hello World!');
-// : 'jack' 是字面量类型
-let name: 'jack' = 'jack';
-console.log(name);
-// : 18 是字面量类型
-let age: 18 = 18;
-console.log(age);
+import axios from "axios";
+import jquery from "jquery";
+ const axiosInstance= axios.create({
+  baseURL: "http://localhost:3000",
+  timeout: 5000
+})
+axiosInstance.get('/api/user').then(res=>{res.data})
 
+jquery.fn.extend({
+})
