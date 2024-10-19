@@ -5,4 +5,8 @@
     <div class="title">hello world</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.title {
+    color: red;
+}
+</style>
