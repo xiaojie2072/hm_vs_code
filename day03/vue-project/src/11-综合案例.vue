@@ -12,8 +12,10 @@ interface Fruit {
 }
 
 // 水果列表
-const fruitList = localStorage.getItem('fruitList') !== null ?
-    ref(JSON.parse(localStorage.getItem('fruitList') as string) as Fruit[]) :
+const fruitList = localStorage.getItem('fruitList') !== null
+    ?
+    ref<Fruit[]>(JSON.parse(localStorage.getItem('fruitList') as string))
+    :
     ref<Fruit[]>([
         {
             id: 1,
@@ -51,44 +53,33 @@ const fruitList = localStorage.getItem('fruitList') !== null ?
             price: 34,
         },
     ],)
-const add = (id: number) => {
-    fruitList.value.find(item => item.id === id)!.num++
-
-}
-const sub = (id: number) => {
-    if (fruitList.value.find(item => item.id === id)!.num >= 1) {
-        fruitList.value.find(item => item.id === id)!.num--
-    }
-
-}
-const del = (id: number) => {
-    fruitList.value = fruitList.value.filter(item => item.id !== id)
-}
+// 监听数据变化，保存到本地存储
+watch(fruitList, () => { localStorage.setItem('fruitList', JSON.stringify(fruitList.value)) }, { deep: true, immediate: true })
+// 加
+const add = (id: number) => { fruitList.value.find(item => item.id === id)!.num++ }
+// 减
+const sub = (id: number) => { fruitList.value.find(item => item.id === id)!.num-- }
+// 删除
+const del = (id: number) => { fruitList.value = fruitList.value.filter(item => item.id !== id) }
+// 全选
 const isAll = computed({
-    get() {
-        return fruitList.value.every(item => item.isChecked)
-    },
-    set(value) {
-        fruitList.value.forEach(item => item.isChecked = value)
-    }
+    get() { return fruitList.value.every(item => item.isChecked) },
+    set(value) { fruitList.value.forEach(item => item.isChecked = value) }
 })
+// 总价
 const totalPrice = computed(() => {
     return fruitList.value
         .filter(item => item.isChecked)
         .reduce((sum, item) => sum + item.num * item.price, 0)
 })
+// 总数
 const totalNum = computed(() => {
     return fruitList.value
         .filter(item => item.isChecked)
         .reduce((sum, item) => sum + item.num, 0)
 })
 
-watch(() => fruitList.value, (newValue) => {
-    localStorage.setItem('fruitList', JSON.stringify(newValue))
-    console.log(JSON.parse(localStorage.getItem('fruitList')!))
-}, {
-    deep: true
-})
+
 </script>
 
 <template>
@@ -125,7 +116,7 @@ watch(() => fruitList.value, (newValue) => {
                         <div class="td">{{ item.price }}</div>
                         <div class="td">
                             <div class="my-input-number">
-                                <button class="decrease" @click="sub(item.id)"> - </button>
+                                <button :disabled="item.num <= 1" class="decrease" @click="sub(item.id)"> - </button>
                                 <span class="my-input__inner">{{ item.num }}</span>
                                 <button class="increase" @click="add(item.id)"> + </button>
                             </div>
