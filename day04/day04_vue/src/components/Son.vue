@@ -5,13 +5,17 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const emits = defineEmits<{
+    (e: 'change', age: number): void
+}>()
 </script>
 <template>
     <div>
         <h1 class="Sh1"> 我是son</h1>
         <div class="box">
             <p>name:{{ name }}</p>
-            <p>age:{{ age }}</p>
+            <p @click="emits('change', age)">age:{{ age }}</p>
         </div>
     </div>
 
