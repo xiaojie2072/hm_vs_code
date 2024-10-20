@@ -8,6 +8,7 @@ export interface Person {
   age: number
 }
 
+
 const list = ref<Person[]>([
   { id: 1, name: '张小花', age: 18 },
   { id: 2, name: '孙大明', age: 19 },
@@ -22,6 +23,12 @@ const list2 = ref<Person[]>([
 const del = (id: number) => {
   list.value = list.value.filter(item => item.id !== id)
 }
+
+// 结构赋值语法
+const { name } = Object({ name: '张小花', age: 18 })
+console.log(name)
+
+
 </script>
 
 <template>

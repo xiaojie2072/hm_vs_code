@@ -14,10 +14,12 @@
             <slot name="content"></slot>
         </div>
         <div class="dialog-footer">
-            <slot name="footer">
-                <button>取消</button>
-                <button>确认</button>
-            </slot>
+            <button>
+                <slot name="left">取消</slot>
+            </button>
+            <button>
+                <slot name="right">确认</slot>
+            </button>
         </div>
     </div>
 </template>
