@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { ref, watch } from 'vue';
 import { type ArticleItem, type ArticleResData, type AxiosResData } from '../types/index';
-import router from '@/router';
+import { useRouter } from 'vue-router';
 
 const props = defineProps<{ channeId: number }>();
 
@@ -24,6 +24,8 @@ watch(
     },
     { immediate: true }// 初始化加载数据
 );
+
+const router = useRouter();
 const onClick = (id: string) => {
     router.push(`/detail/${id}`)
 };

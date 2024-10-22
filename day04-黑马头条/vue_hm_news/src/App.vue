@@ -12,4 +12,5 @@ const changeChannel = (id: number) => {
 <template>
   <ChannelNav :channeId="channeId" @changeChannel="changeChannel"></ChannelNav>
   <ArticleList :channeId="channeId"></ArticleList>
+  <RouterView></RouterView>
 </template>
