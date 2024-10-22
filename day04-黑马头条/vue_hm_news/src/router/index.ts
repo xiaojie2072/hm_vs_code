@@ -1,8 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [],
+  history: createWebHistory(),
+  routes: [
+    {
+      path: "/detail/:id",
+      component: () => import("@/views/ArticleDetailview.vue"),
+    },
+  ],
 });
 
 export default router;
