@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试页面</title>
+  </head>
+  <body>
+    <h2>测试用网页</h2>
+    <button class="queryUser">查询用户</button>
+    <button class="removeUser">移除用户</button>
+    <button class="pickerPhoto">调用相册</button>
+    <button class="pickerCamera">调用相机</button>
+    <button class="vibrator">调用传感器</button>
+    <button class="getAreaColumns">获取省市区</button>
+    <img style="width: 100px" src="" alt="" />
+
+    <script>
+      const queryUserbutton = document.querySelector(".queryUser");
+      queryUserbutton.addEventListener("click", async () => {
+        //mk.sayHi("测试一下注入的弹窗方法");
+        const userInfo = mk.queryUser();
+        console.log(userInfo);
+      });
+      const removeUserbutton = document.querySelector(".removeUser");
+      removeUserbutton.addEventListener("click", async () => {
+        const removeUser = mk.removeUser();
+        console.log(removeUser);
+      });
+      const pickerPhoto = document.querySelector(".pickerPhoto");
+      pickerPhoto.addEventListener("click", async () => {
+        const pickerPhoto = await mk.pickerPhoto();
+        console.log(pickerPhoto);
+        document.querySelector(
+          "img"
+        ).src = `data:image/jpeg;base64,${pickerPhoto}`;
+      });
+      const pickerCamera = document.querySelector(".pickerCamera");
+      pickerCamera.addEventListener("click", async () => {
+        const pickerCamera = await mk.pickerCamera();
+        console.log(pickerCamera);
+        document.querySelector(
+          "img"
+        ).src = `data:image/jpeg;base64,${pickerCamera}`;
+      });
+      const vibrator = document.querySelector(".vibrator");
+      vibrator.addEventListener("click", async () => {
+        const vibrator = await mk.vibrator();
+        console.log(vibrator);
+      });
+      const getAreaColumns = document.querySelector(".getAreaColumns");
+      getAreaColumns.addEventListener("click", async () => {
+        const getAreaColumns = await mk.getAreaColumns();
+        console.log(JSON.stringify(getAreaColumns));
+      });
+    </script>
+    <!-- 引入调试控制台 -->
+    <script src="./eruda.min.js"></script>
+    <script>
+      eruda.init();
+    </script>
+  </body>
+</html>

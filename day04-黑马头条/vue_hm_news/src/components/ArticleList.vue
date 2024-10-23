@@ -3,24 +3,23 @@ import axios from 'axios';
 import { ref, watch } from 'vue';
 import { type ArticleItem, type ArticleResData, type AxiosResData } from '../types/index';
 import { useRouter } from 'vue-router';
+import { useChannelStore } from '@/stores/channel';
 
-const props = defineProps<{ channeId: number }>();
-
-const articles = ref<ArticleItem[]>([]);
-
+const list = ref<ArticleItem[]>([]);
+const store = useChannelStore()
 watch(
-    () => props.channeId,
+    () => store.channeId,
     async () => {
         const res = await axios.get<AxiosResData<ArticleResData>>(
             `http://geek.itheima.net/v1_0/articles`,
             {
                 params: {
-                    channel_id: props.channeId,
+                    channel_id: store.channeId,
                     timestamp: Date.now(),
                 },
             },
         );
-        articles.value = res.data.data.results;
+        list.value = res.data.data.results;
     },
     { immediate: true }// 初始化加载数据
 );
@@ -33,7 +32,7 @@ const onClick = (id: string) => {
 
 <template>
     <div class="article-list">
-        <div class="article-item" @click="onClick(item.art_id)" v-for="item in articles" :key="item.art_id">
+        <div class="article-item" @click="onClick(item.art_id)" v-for="item in list" :key="item.art_id">
             <p class="title">{{ item.title }}</p>
             <img v-for="(url, i) in item.cover?.images" :key="i" class="img" :src="url" alt="" />
             <div class="info">

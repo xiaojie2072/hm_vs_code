@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 const router = useRouter()
-const back = () => {
+const backshouye = () => {
     router.push('/')
 }
 
@@ -11,7 +11,7 @@ const back = () => {
     <div class="detail">
         <h1>文章详情页</h1>
         <p>文章详情的id: {{ $route.params.id }}</p>
-        <button @click="back">返回首页</button>
+        <button @click="backshouye">返回首页</button>
     </div>
 </template>
 
